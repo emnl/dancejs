@@ -12,7 +12,7 @@
   Some native support functions was taken from
   Underscore (MIT), thanks guys!
 
-  Date: 31 Oct 2011
+  Date: 14 Oct 2011
 ###
 
 # These classes are affected,

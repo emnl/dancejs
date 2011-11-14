@@ -12,6 +12,12 @@ standard library.
 
 (dance.min.js 4KB < underscore-min.js 11KB)
 
+## TODO
+
+There a few things in need of cleaning up, this is a rough port to coffee from move.
+The tests needs to be rewritten into a more coffee-like syntax.
+The readme also needs a bit of work, a few coffee/javascript examples would also be nice.
+
 ## Usage
 
 Just require the dance.js file, alt dance.min.js.

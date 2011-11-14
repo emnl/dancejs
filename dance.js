@@ -12,7 +12,7 @@
     Some native support functions was taken from
     Underscore (MIT), thanks guys!
   
-    Date: 31 Oct 2011
+    Date: 14 Oct 2011
   */  var nativeAll, nativeAny, nativeFilter, nativeFoldl, nativeFoldr, nativeMap, nativeSort, _ap, _np, _op;
   _ap = Array.prototype;
   _op = Object.prototype;
