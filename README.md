@@ -53,7 +53,7 @@ This is an example in CoffeeScript:
 
 ```javascript
 insertion_sort = (xs) ->
-  if (xs.empty) return []
+  if xs.empty then return []
   return (insertion_sort xs.tail).insert xs.head
 ```
 
