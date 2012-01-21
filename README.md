@@ -1,20 +1,18 @@
 # Dancejs
 
-Dancejs is diet Haskell in Javascript (unt CoffeeScript). It's kind of a step-sister to [Underscore](http://underscore.com).
+Dancejs is diet Haskell in Javascript (and CoffeeScript). It's kind of a step-sister to [Underscore](http://underscore.com).
 While Underscore has its strict ways, Dancejs, released under the BeerWare
 license, does functional things a bit more out of hand and awesome.
-Imagine dragging a monkey to a bohemic rails party, yeah.
 
 Basically you can do gnarly functional programming in [CoffeeScript](http://jashkenas.github.com/coffee-script/) and Javascript.
 
 Dance is **STRONGLY** influenced by [Haskell](http://haskell.org/) and its
 standard library.
 
-(dance.min.js 4KB < underscore-min.js 11KB)
+(dance.min.js 4KB < underscore-min.js 12KB)
 
 ## TODO
 
-There a few things in need of cleaning up, this is a rough port to coffee from move.
 The tests needs to be rewritten into a more coffee-like syntax.
 The readme also needs a bit of work, a few coffee/javascript examples would also be nice.
 
