@@ -59,7 +59,7 @@ Further examples can be found under the Dancemv (Move-implementation) page, [exa
 
 ## Functions
 
-Included functions are:
+Included functions and properties are:
 tail, head, last, init, empty, _reverse, rev, add, append, fadd, map, foldl, foldr, and, or, sum, product, _concat, conc, any, all, concatMap, maximum, minimum, insert, delete, del, replicate, take, drop, takeWhile, dropWhile, group, elem, NotElem, find, filter, zip, even, odd, minimumBy, maximumBy, insertBy, deleteBy, sortBy, groupBy
 
 To find out what each of these do, please read the source, the tests or the [Haskell List](http://hackage.haskell.org/packages/archive/base/latest/doc/html/Data-List.html) documentation.
