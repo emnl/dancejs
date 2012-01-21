@@ -1,9 +1,9 @@
 
 ###
-  Dancejs Library v0.1.0
+  Dancejs Library v0.1.1
   http://github.com/emnl/dancejs
 
-  Copyright 2011, Emanuel Andersson
+  Copyright 2012, Emanuel Andersson
   Dual licensed under the MIT or BeerWare licenses.
   https://github.com/emnl/dancejs/blob/master/README.md
 
@@ -12,7 +12,7 @@
   Some native support functions was taken from
   Underscore (MIT), thanks guys!
 
-  Date: 14 Oct 2011
+  Date: 21 Jan 2012
 ###
 
 # These classes are affected,
@@ -36,7 +36,7 @@ nativeSort         = _ap.sort
 # ** all functions should return a new object,
 # thus not modifying the original one **
 
-_ap.__defineGetter__ "clone", ->
+_ap.clone = ->
   return @slice 0, @length
 
 ############################################################
@@ -44,38 +44,38 @@ _ap.__defineGetter__ "clone", ->
 
 # tail will return all elements in an
 # array except the first one
-_ap.__defineGetter__ "tail", ->
+_ap.tail = ->
   if @length <= 1 then return []
   return @slice 1, @length
 
 # head will return the first element
 # in an array
-_ap.__defineGetter__ "head", ->
+_ap.head = ->
   return this[0]
 
 # last will return the last element
 # in an array
-_ap.__defineGetter__ "last", ->
+_ap.last = ->
   return this[@length-1]
 
 # init will return all elements in an
 # array except the first one
-_ap.__defineGetter__ "init", ->
+_ap.init = ->
   return @slice 0, @length-1
 
 # empty will return true if the array
 # holds 0 values
-_ap.__defineGetter__ "empty", ->
+_ap.empty = ->
   return (@length == 0)
 
 # reverse will return the array reversed,
 # last element first and so on
-_ap.__defineGetter__ "_reverse", ->
+_ap._reverse = ->
   if @length == 0 then return []
   return @clone.reverse()
 
 # rev is short for _reverse
-_ap.__defineGetter__ "rev", ->
+_ap.rev = ->
   return @_reverse
 
 # add or append will add the input array
@@ -115,18 +115,18 @@ _ap.foldr = nativeFoldr || (f,z) ->
 
 # and will return true if all elements in
 # the array is a bool and true
-_ap.__defineGetter__ "and", ->
+_ap.and = ->
   @foldr ((a,b) -> a && b), true
 
 # and will return true if at least one
 # elements in the array is a bool and true
-_ap.__defineGetter__ "or", ->
+_ap.or = ->
   @foldr ((a,b) -> a || b), false
 
 # sum will use foldl with addition,
 # thus creating a sum of all numeric
 # elements
-_ap.__defineGetter__ "sum", ->
+_ap.sum = ->
   sum = @foldl ((a,b) -> a + b), 0
   if sum == undefined then return 0
   return sum
@@ -134,18 +134,18 @@ _ap.__defineGetter__ "sum", ->
 # product will use foldl with multiplication,
 # thus creating a product of all numeric
 # elements
-_ap.__defineGetter__ "product", ->
+_ap.product = ->
   product = @foldl ((a,b) -> a * b), 1
   if product == undefined then return 0
   return product
 
 # _concat will return the array flatten
 # one level
-_ap.__defineGetter__ "_concat", ->
+_ap._concat = ->
   return @foldl ((a,b) -> a.add b ), []
 
 # conc is short for _concat
-_ap.__defineGetter__ "conc", ->
+_ap.conc = ->
   return @_concat
 
 # any will apply the input function
@@ -167,12 +167,12 @@ _ap.concatMap = (f) ->
 
 # maximum will return the "heighest"
 # element in the array
-_ap.__defineGetter__ "maximum", ->
+_ap.maximum = ->
   return @maximumBy (a,b) -> a >= b
 
 # minimum will return the "lowest"
 # element in the array
-_ap.__defineGetter__ "minimum", ->
+_ap.minimum = ->
   return @minimumBy (a,b) -> a <= b
 
 # insert will return the array with
@@ -228,7 +228,7 @@ _ap.dropWhile = (f) ->
 # group will return an array with
 # the elements grouped based on
 # == comparison
-_ap.__defineGetter__ "group", ->
+_ap.group = ->
   return @groupBy (a,b) -> a == b
 
 ############################################################
@@ -273,11 +273,11 @@ _ap.zip = (ar) ->
 
 # even will return true if the
 # number is even
-_np.__defineGetter__ "even", ->
+_np.even = ->
   return (this%2 == 0)
 
 # odd is even's inverse
-_np.__defineGetter__ "odd", ->
+_np.odd = ->
   return !@even
 
 ############################################################
@@ -334,3 +334,29 @@ _ap.groupBy = (f) ->
   return [n].add(o.groupBy f)
 
 ############################################################
+#### Assigning properties
+
+Object.defineProperties(_ap,
+  clone:    { get: _ap.clone },
+  tail:     { get: _ap.tail },
+  head:     { get: _ap.head },
+  last:     { get: _ap.last },
+  init:     { get: _ap.init },
+  empty:    { get: _ap.empty },
+  _reverse: { get: _ap._reverse },
+  rev:      { get: _ap.rev },
+  and:      { get: _ap.and },
+  or:       { get: _ap.or },
+  sum:      { get: _ap.sum },
+  product:  { get: _ap.product },
+  _concat:  { get: _ap._concat },
+  conc:     { get: _ap.conc },
+  maximum:  { get: _ap.maximum },
+  minimum:  { get: _ap.minimum },
+  group:    { get: _ap.group }
+)
+
+Object.defineProperties(_np,
+  even:     { get: _np.even },
+  odd:      { get: _np.odd }
+)
